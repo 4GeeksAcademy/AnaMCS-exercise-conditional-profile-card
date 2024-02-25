@@ -29,31 +29,33 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-  if (variables.background == null) variables.background = "";
-  if (variables.avatarURL == null) variables.avatarURL = "";
-  if (variables.name == null) variables.name = "Name";
-  if (variables.lastname == null) variables.lastname = "Last-name";
-  if (variables.role == null) variables.role = "Role";
-  if (variables.city == null) variables.city = "City";
-  if (variables.country == null) variables.country = "Country";
-  if (variables.twitter == null) variables.twitter = "";
-  if (variables.github == null) variables.github = "";
-  if (variables.linkedin == null) variables.linkedin = "";
-  if (variables.instagram == null) variables.instagram = "";
-
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name ? variables.name : "Ana"} ${
+    variables.lastName ? variables.lastName : "Campello"
+  }</h1>
+          <h2>${variables.role ? variables.role : "Studente"}</h2>
+          <h3>${variables.city ? variables.city : "Elche"}, ${
+    variables.country ? variables.country : "España"
+  } </h3>
+          <ul class= ${variables.socialMediaPosition}>
+          
+            <li><a href="https://twitter.com/${
+              variables.twitter
+            }"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github ? variables.github : "Mjuliafb"
+            }"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/${
+              variables.linkedin ? variables.linkedin : "mjfbalice"
+            }"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/${
+              variables.instagram
+            }"><i class="fab fa-instagram"></i></a></li>
           </ul>
+
         </div>
     `;
 }
@@ -66,9 +68,11 @@ window.onload = function() {
     // if includeCover is true the algorithm should show the cover image
     includeCover: true,
     // this is the image's url that will be used as a background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background:
+      "https://img.freepik.com/vector-gratis/fondo-onda-particulas-degradado_23-2150428788.jpg?w=1800&t=st=1701814263~exp=1701814863~hmac=831a48a02a53129b2fa1cda3482ef68b8f6af4ab51d6b8858f5c89b288f81270",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://img.freepik.com/psd-gratis/ilustracion-3d-avatar-o-perfil-humano_23-2150671140.jpg?w=826&t=st=1701719558~exp=1701720158~hmac=21f3f72df8d55428076cb030f3fbad6251ceef812a693b1547d4dedfdfc977ab",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
